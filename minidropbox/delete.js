@@ -8,7 +8,7 @@ const s3 = new AWS.S3();
 module.exports.delete = (event) => {
 
 	const params = {
-		Bucket: "minidropbox",
+		Bucket: "minidropbox-serverless-dev-serverlessdeploymentbucket",
 		Key: event.pathParameters.name
 	};
 

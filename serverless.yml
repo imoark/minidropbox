@@ -21,7 +21,8 @@ provider:
       Resource: "arn:aws:dynamodb:us-west-2:*:*"
     - Effect: Allow
       Action:
-        - s3:*
+        - s3:PutObject
+        - s3:DeleteObject
       Resource: "*"
 
 functions:
@@ -39,12 +40,12 @@ functions:
           method: get
           cors: true   
 
-#  removeDB:
-#    handler: dropbox/remove.remove
-#    events:
-#      - s3:
-#          bucket: ${self:custom.bucket}
-#          event: s3:ObjectRemoved:* 
+  removeDB:
+    handler: minidropbox/remove.remove
+    events:
+      - s3:
+          bucket: ${self:custom.bucket}
+          event: s3:ObjectRemoved:* 
 
   delete:
     handler: minidropbox/delete.delete
