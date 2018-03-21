@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>S3 POST Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <form action="https://minidropbox-serverless-dev-serverlessdeploymentbucket.s3.amazonaws.com" method="post" enctype="multipart/form-data">
+      <!-- <input type="hidden" name="Content-Type" value="image/png"> -->
+      <input type="hidden" name="AWSAccessKeyId" value="AKIAJ4Z4TNJPHBJXYARA">
+      <input type="hidden" name="acl" value="public-read">
+      <input type="hidden" name="success_action_status" value="201">
+      <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjoiMjAxOC0wMy0yMlQwNzo1MToyMi44MzZaIiwiY29uZGl0aW9ucyI6W1sic3RhcnRzLXdpdGgiLCIka2V5IiwidXBsb2Fkcy8iXSx7ImJ1Y2tldCI6Im1pbmlkcm9wYm94LXNlcnZlcmxlc3MtZGV2LXNlcnZlcmxlc3NkZXBsb3ltZW50YnVja2V0In0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LFsic3RhcnRzLXdpdGgiLCIkQ29udGVudC1UeXBlIiwiaW1hZ2UvcG5nIl0seyJzdWNjZXNzX2FjdGlvbl9zdGF0dXMiOiIyMDEifV19">
+      <input type="hidden" name="signature" value="+eXD0PUcDMRd8eGfyV9HI9eJq88=">
+
+      Destination filename: 
+      <input type="text" name="key" id="keyname">
+      <br>
+      File to upload to S3:
+      <input name="file" type="file" id="fileupload">
+      <br>
+      <input type="submit" value="Upload File to S3">
+    </form>
+
+    <script>
+      document.getElementById('fileupload').onchange = uploadOnChange;
+
+      function uploadOnChange() {
+          var filename = this.files[0].name;
+          // var lastIndex = filename.lastIndexOf("\\");
+          // if (lastIndex >= 0) {
+          //     filename = filename.substring(lastIndex + 1);
+          // }
+          document.getElementById('keyname').value = "uploads/" + filename;
+      }
+    </script>
+  </body>
+</html>
