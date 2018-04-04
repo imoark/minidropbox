@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>S3 POST Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <form action="https://minidropbox-serverless-dev-serverlessdeploymentbucket-twilio.s3.amazonaws.com" method="post" enctype="multipart/form-data">
+      <!-- <input type="hidden" name="Content-Type" value="image/png"> -->
+      <input type="hidden" name="AWSAccessKeyId" value="AKIAI4NTM2IYWPVSK2BQ">
+      <input type="hidden" name="acl" value="public-read">
+      <input type="hidden" name="success_action_status" value="201">
+      <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjoiMjAxOC0wNC0wNVQwNDoxNzozNi4yNTdaIiwiY29uZGl0aW9ucyI6W1sic3RhcnRzLXdpdGgiLCIka2V5IiwiIl0seyJidWNrZXQiOiJtaW5pZHJvcGJveC1zZXJ2ZXJsZXNzLWRldi1zZXJ2ZXJsZXNzZGVwbG95bWVudGJ1Y2tldC10d2lsaW8ifSx7ImFjbCI6InB1YmxpYy1yZWFkIn0seyJzdWNjZXNzX2FjdGlvbl9zdGF0dXMiOiIyMDEifV19">
+      <input type="hidden" name="signature" value="7ta25bpc4E1JYM+6BCQaqv+5XtI=">
+
+      Destination filename: 
+      <input type="text" name="key" id="keyname">
+      <br>
+      File to upload to S3:
+      <input name="file" type="file" id="fileupload">
+      <br>
+      <input type="submit" value="Upload File to S3">
+    </form>
+
+    <script>
+      document.getElementById('fileupload').onchange = uploadOnChange;
+
+      function uploadOnChange() {
+          var filename = this.files[0].name;
+          // var lastIndex = filename.lastIndexOf("\\");
+          // if (lastIndex >= 0) {
+          //     filename = filename.substring(lastIndex + 1);
+          // }
+          document.getElementById('keyname').value = filename;
+      }
+    </script>
+  </body>
+</html>
