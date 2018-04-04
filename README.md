@@ -20,8 +20,8 @@ stack: upload-to-s3-and-postprocess-dev
 api keys:
   None
 endpoints:
-  GET - https://oewzd56803.execute-api.us-west-2.amazonaws.com/dev/minidropbox
-  DELETE - https://oewzd56803.execute-api.us-west-2.amazonaws.com/dev/minidropbox/{name}
+  GET - https://fhlttmuwm5.execute-api.us-west-2.amazonaws.com/dev/minidropbox
+  DELETE - https://fhlttmuwm5.execute-api.us-west-2.amazonaws.com/dev/minidropbox/{name}
   ```
 
 Use the `GET` endpoint on your `Postman` software.
