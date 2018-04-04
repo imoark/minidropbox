@@ -5,13 +5,13 @@
   </head>
 
   <body>
-    <form action="https://minidropbox-serverless-dev-serverlessdeploymentbucket.s3.amazonaws.com" method="post" enctype="multipart/form-data">
+    <form action="https://minidropbox-serverless-dev-serverlessdeploymentbucket-twilio.s3.amazonaws.com" method="post" enctype="multipart/form-data">
       <!-- <input type="hidden" name="Content-Type" value="image/png"> -->
-      <input type="hidden" name="AWSAccessKeyId" value="AKIAJ4Z4TNJPHBJXYARA">
+      <input type="hidden" name="AWSAccessKeyId" value="AKIAI4NTM2IYWPVSK2BQ">
       <input type="hidden" name="acl" value="public-read">
       <input type="hidden" name="success_action_status" value="201">
-      <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjoiMjAxOC0wMy0yMlQwNzo1MToyMi44MzZaIiwiY29uZGl0aW9ucyI6W1sic3RhcnRzLXdpdGgiLCIka2V5IiwidXBsb2Fkcy8iXSx7ImJ1Y2tldCI6Im1pbmlkcm9wYm94LXNlcnZlcmxlc3MtZGV2LXNlcnZlcmxlc3NkZXBsb3ltZW50YnVja2V0In0seyJhY2wiOiJwdWJsaWMtcmVhZCJ9LFsic3RhcnRzLXdpdGgiLCIkQ29udGVudC1UeXBlIiwiaW1hZ2UvcG5nIl0seyJzdWNjZXNzX2FjdGlvbl9zdGF0dXMiOiIyMDEifV19">
-      <input type="hidden" name="signature" value="+eXD0PUcDMRd8eGfyV9HI9eJq88=">
+      <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjoiMjAxOC0wNC0wNVQwNDoxNzozNi4yNTdaIiwiY29uZGl0aW9ucyI6W1sic3RhcnRzLXdpdGgiLCIka2V5IiwiIl0seyJidWNrZXQiOiJtaW5pZHJvcGJveC1zZXJ2ZXJsZXNzLWRldi1zZXJ2ZXJsZXNzZGVwbG95bWVudGJ1Y2tldC10d2lsaW8ifSx7ImFjbCI6InB1YmxpYy1yZWFkIn0seyJzdWNjZXNzX2FjdGlvbl9zdGF0dXMiOiIyMDEifV19">
+      <input type="hidden" name="signature" value="7ta25bpc4E1JYM+6BCQaqv+5XtI=">
 
       Destination filename: 
       <input type="text" name="key" id="keyname">
@@ -31,7 +31,7 @@
           // if (lastIndex >= 0) {
           //     filename = filename.substring(lastIndex + 1);
           // }
-          document.getElementById('keyname').value = "uploads/" + filename;
+          document.getElementById('keyname').value = filename;
       }
     </script>
   </body>

@@ -2,8 +2,10 @@
   "name": "upload-to-s3-and-postprocess",
   "description": "Upload a files to S3 to trigger a lambda function.",
   "version": "1.0.0",
-  "author": "Christoph Gysin <christoph.gysin@gmail.com>",
+  "author": "",
   "license": "MIT",
   "dependencies": {
+  	"aws-sdk": "^2.194.0",
+    "uuid": "^3.2.1"
   }
 }

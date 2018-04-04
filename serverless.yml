@@ -3,7 +3,7 @@ service: upload-to-s3-and-postprocess
 frameworkVersion: ">=1.1.0"
 
 custom:
-  bucket: minidropbox-serverless-dev-serverlessdeploymentbucket
+  bucket: minidropbox-serverless-dev-serverlessdeploymentbucket-twilio
 
 provider:
   name: aws
@@ -32,6 +32,14 @@ functions:
       - s3:
           bucket: ${self:custom.bucket}
           event: s3:ObjectCreated:*
+
+#  twilio:
+#    handler: minidropbox/twilio.twilio
+#    events:
+#      - s3:
+#          bucket: ${self:custom.bucket}
+#          event: s3:ObjectCreated:Post
+
   list:
     handler: minidropbox/list.list
     events:

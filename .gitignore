@@ -2,3 +2,5 @@ node_modules
 .serverless
 index.html
 generate-form.js
+accessKeys.csv
+.env
