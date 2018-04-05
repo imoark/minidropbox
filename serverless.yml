@@ -24,6 +24,11 @@ provider:
         - s3:PutObject
         - s3:DeleteObject
       Resource: "*"
+    - Effect: "Allow"
+      Action:
+        - lambda:InvokeFunction
+        - lambda:InvokeAsync
+      Resource: "*"
 
 functions:
   postprocess:
@@ -33,12 +38,8 @@ functions:
           bucket: ${self:custom.bucket}
           event: s3:ObjectCreated:*
 
-#  twilio:
-#    handler: minidropbox/twilio.twilio
-#    events:
-#      - s3:
-#          bucket: ${self:custom.bucket}
-#          event: s3:ObjectCreated:Post
+  twilio:
+    handler: minidropbox/twilio.twil
 
   list:
     handler: minidropbox/list.list

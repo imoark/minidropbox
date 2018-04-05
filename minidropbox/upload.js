@@ -5,6 +5,7 @@ const AWS = require('aws-sdk');
 // const dynamoDb = new AWS.DynamoDB.DocumentClient();
 const s3 = new AWS.S3()
 
+
 module.exports.upload = (event) => {
   console.log('upload happened')
   console.log(event.Records)
@@ -28,7 +29,18 @@ module.exports.upload = (event) => {
         console.log(err);
         return;
       }
-      console.log("data uploaded")
+      console.log("data uploaded");
+      const invparams = {
+        FunctionName: 'upload-to-s3-and-postprocess-dev-twilio',
+        Payload: JSON.stringify({ filename: filename })
+      }
+      lambda.invoke(invparams, (err, data) => {
+        if(err) {
+          console.log(err)
+          return
+        }
+        console.log(data)
+      })
     })
 
   });

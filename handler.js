@@ -4,6 +4,9 @@ const uuid = require('uuid');
 const AWS = require('aws-sdk');
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
 const s3 = new AWS.S3();
+const lambda = new AWS.Lambda({
+  region: 'us-west-2'
+});
 
 module.exports.postprocess = (event) => {
   event.Records.forEach((record) => {
@@ -32,7 +35,20 @@ module.exports.postprocess = (event) => {
 			return;
 		}
 
-		console.log("Metadata uploaded to DynamoDB")
+		console.log("Metadata uploaded to DynamoDB");
+		const invparams = {
+	        FunctionName: 'upload-to-s3-and-postprocess-dev-twilio',
+	        Payload: JSON.stringify({ filename: filename })
+     	}
+		lambda.invoke(invparams, (err, data) => {
+			if(err) {
+				console.log("Houston, we got a problem")
+				console.log(err)
+				return
+			}
+			console.log("Houston, we got a data")
+			console.log(data)
+		})
 	})
 
 
